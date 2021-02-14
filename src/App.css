@@ -2,17 +2,26 @@
   width: 50%;
   margin: 0 auto;
 }
+.completed {
+  text-decoration: line-through;
+  color: rgb(13, 238, 238);
+}
+.completed.fa {
+  color: aqua;
+}
 
 .list-group {
   margin-top: 20px;
 }
 .list-group-item {
+  cursor: pointer;
   display: flex !important;
   align-items: center;
   justify-content: space-around;
 }
 
 .list-group-item > i {
+  text-decoration: none;
   margin-right: 20px;
   font-size: 30px;
   color: rgb(43, 41, 41);
