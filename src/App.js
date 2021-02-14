@@ -2,6 +2,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import React, { Component } from "react";
 import ListItem from "./Components/listItems";
+import "font-awesome/css/font-awesome.css";
+
 class App extends Component {
   state = {
     todoItems: [

@@ -6,7 +6,8 @@ const ListItem = ({ items }) => {
     <ul className="list-group">
       {items.map((item) => (
         <li className="list-group-item" key={item.id}>
-          {item.textContent}
+          <i className="fa fa-circle-o" aria-hidden="true"></i>
+          <span>{item.textContent}</span>
         </li>
       ))}
     </ul>
