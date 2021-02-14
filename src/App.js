@@ -6,7 +6,7 @@ import "font-awesome/css/font-awesome.css";
 
 class App extends Component {
   state = {
-    todoItems: [
+    toDoItems: [
       { id: 1, textContent: "Task one.", isComplete: false },
       { id: 2, textContent: "Task Two.", isComplete: false },
       { id: 3, textContent: "Task Three.", isComplete: false },
@@ -16,17 +16,25 @@ class App extends Component {
   };
 
   handelCompleteEvent = (item) => {
-    const items = [...this.state.todoItems];
+    const items = [...this.state.toDoItems];
     const itemIndex = items.indexOf(item);
     items[itemIndex].isComplete = !items[itemIndex].isComplete;
     this.setState({ items });
+  };
+
+  handelDeleteEvent = (item) => {
+    const items = [...this.state.toDoItems];
+    const newItems = items.filter((i) => item.id !== i.id);
+    this.setState({ toDoItems: newItems });
+    console.log(this.state);
   };
   render() {
     return (
       <div className="App">
         <ListItem
-          items={this.state.todoItems}
+          items={this.state.toDoItems}
           onCompleteEvent={this.handelCompleteEvent}
+          onDelete={this.handelDeleteEvent}
         />
       </div>
     );
