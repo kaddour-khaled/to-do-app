@@ -27,11 +27,12 @@ class App extends Component {
     const items = [...this.state.toDoItems];
     const newItems = items.filter((i) => item.id !== i.id);
     this.setState({ toDoItems: newItems });
-    console.log(this.state);
   };
 
   handelAdd = (value) => {
-    const lastIndex = this.state.toDoItems[this.state.toDoItems.length - 1].id;
+    const length = this.state.toDoItems.length;
+    const lastIndex = length === 0 ? 0 : this.state.toDoItems[length - 1].id;
+
     const newItem = {
       id: lastIndex + 1,
       textContent: value,

@@ -6,6 +6,7 @@ const Form = ({ onAdd }) => {
     onAdd(value);
     e.target.content.value = "";
   };
+
   return (
     <form onSubmit={handelSubmit}>
       <div className="form-group">
