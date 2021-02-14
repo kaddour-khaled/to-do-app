@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import React, { Component } from "react";
 import ListItem from "./Components/listItems";
 import "font-awesome/css/font-awesome.css";
+import Form from "./Components/form";
 
 class App extends Component {
   state = {
@@ -28,9 +29,22 @@ class App extends Component {
     this.setState({ toDoItems: newItems });
     console.log(this.state);
   };
+
+  handelAdd = (value) => {
+    const lastIndex = this.state.toDoItems[this.state.toDoItems.length - 1].id;
+    const newItem = {
+      id: lastIndex + 1,
+      textContent: value,
+      isComplete: false,
+    };
+    const toDoItems = [...this.state.toDoItems, newItem];
+    this.setState({ toDoItems });
+  };
+
   render() {
     return (
       <div className="App">
+        <Form onAdd={this.handelAdd} />
         <ListItem
           items={this.state.toDoItems}
           onCompleteEvent={this.handelCompleteEvent}
